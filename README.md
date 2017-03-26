@@ -32,11 +32,59 @@ It have 3 Parameters first 2 are mendatory and last one are optional.
 #### example
 ```vb
   year 'To get year
-  month
-  week
-  day
+  month 'To get month
+  week 'To get week
+  day 'To get day
   Label1.Text = my_date.date_diff("01/08/2014", "10/05/2017", "day")
   ```
   The output will be 1013
-      
-      
+  
+### `date_filter()`
+If you need to convert any text date format to Date use this method. It can convert from following format
+```vb
+ "d-M-yyyy",
+ "dd-MM-yyyy",
+ "d-MM-yyyy",
+ "dd-M-yyyy",
+ "M-d-yyyy",
+ "MM-dd-yyyy",
+ "M-dd-yyyy",
+ "MM-d-yyyy",
+ "yyyy-M-d",
+ "yyyy-MM-dd",
+ "yyyy-M-dd",
+ "yyyy-MM-d",
+ "yyyy-d-M",
+ "yyyy-dd-MM",
+ "yyyyd-MM",
+ "yyyy-dd-M",
+ "d/M/yyyy",
+ "dd/MM/yyyy",
+ "d/MM/yyyy",
+ "dd/M/yyyy",
+ "M/d/yyyy",
+ "MM/dd/yyyy",
+ "M/dd/yyyy",
+ "MM/d/yyyy",
+ "yyyy/M/d",
+ "yyyy/MM/dd",
+ "yyyy/M/dd",
+ "yyyy/MM/d",
+ "yyyy/d/M",
+ "yyyy/dd/MM",
+ "yyyyd/MM",
+ "yyyy/dd/M"
+```
+#### example
+```vb
+Public Class Form1
+    Public my_date As New Date_calc.Date_calc
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim the_date As Date = my_date.date_filter("2017/12/01")
+        Label1.Text = the_date
+    End Sub
+End Class
+```
+The out put will be 
+`12/1/2017`
+The Filtered Date
